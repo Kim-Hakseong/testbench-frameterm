@@ -18,18 +18,18 @@ public class HelpWindowSmokeTests
             .ToList();
 
     [AvaloniaFact]
-    public void Opens_InKorean_WithAllSections()
+    public void Opens_InEnglish_WithAllSections()
     {
         var window = new HelpWindow();
         window.Show();
 
-        Assert.Equal(HelpLanguage.Korean, window.Language);
+        Assert.Equal(HelpLanguage.English, window.Language);
         var text = VisibleText(window);
-        Assert.Contains(text, t => t.Contains("간단 사용설명서"));
+        Assert.Contains(text, t => t.Contains("quick guide"));
         Assert.Contains(text, t => t.Contains("Demo"));
-        Assert.Contains(text, t => t.Contains("프레임 정의"));
+        Assert.Contains(text, t => t.Contains("Frame definition"));
         // Every section heading from the document is rendered.
-        foreach (var section in HelpContent.For(HelpLanguage.Korean).Sections)
+        foreach (var section in HelpContent.For(HelpLanguage.English).Sections)
         {
             Assert.Contains(text, t => t == section.Title);
         }
@@ -43,23 +43,26 @@ public class HelpWindowSmokeTests
         var window = new HelpWindow();
         window.Show();
 
+        // Opens in English, so the toggle offers the other language.
         var toggle = window.GetVisualDescendants()
             .OfType<Button>()
             .First(b => b.GetVisualDescendants().OfType<TextBlock>()
-                .Any(t => t.Text == "English"));
+                .Any(t => t.Text == "한국어"));
 
         // Click handlers are driven by raising the routed event in headless tests.
+        toggle.RaiseEvent(new Avalonia.Interactivity.RoutedEventArgs(Button.ClickEvent));
+        Assert.Equal(HelpLanguage.Korean, window.Language);
+
+        var korean = VisibleText(window);
+        Assert.Contains(korean, t => t.Contains("간단 사용설명서"));
+        Assert.DoesNotContain(korean, t => t.Contains("Frame definition"));
+
         toggle.RaiseEvent(new Avalonia.Interactivity.RoutedEventArgs(Button.ClickEvent));
         Assert.Equal(HelpLanguage.English, window.Language);
 
         var english = VisibleText(window);
-        Assert.Contains(english, t => t.Contains("quick guide"));
         Assert.Contains(english, t => t.Contains("Frame definition"));
         Assert.DoesNotContain(english, t => t.Contains("간단 사용설명서"));
-
-        toggle.RaiseEvent(new Avalonia.Interactivity.RoutedEventArgs(Button.ClickEvent));
-        Assert.Equal(HelpLanguage.Korean, window.Language);
-        Assert.Contains(VisibleText(window), t => t.Contains("간단 사용설명서"));
 
         UiTest.FlushAndClose(window);
     }

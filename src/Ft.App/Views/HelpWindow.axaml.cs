@@ -13,7 +13,7 @@ namespace Ft.App.Views;
 /// </summary>
 public partial class HelpWindow : Window
 {
-    public HelpLanguage Language { get; private set; } = HelpLanguage.Korean;
+    public HelpLanguage Language { get; private set; } = HelpLanguage.English;
 
     public HelpWindow()
     {
