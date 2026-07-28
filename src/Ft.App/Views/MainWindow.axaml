@@ -96,6 +96,12 @@
             <TextBlock Text="Clear" VerticalAlignment="Center" />
           </StackPanel>
         </Button>
+        <Button Click="OnHelpClick" ToolTip.Tip="Quick guide (English / 한국어)">
+          <StackPanel Orientation="Horizontal" Spacing="7">
+            <PathIcon Data="{StaticResource IconHelp}" />
+            <TextBlock Text="Help" VerticalAlignment="Center" />
+          </StackPanel>
+        </Button>
       </WrapPanel>
     </Grid>
 
@@ -186,8 +192,6 @@
       <DockPanel>
         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="10"
                     VerticalAlignment="Center">
-          <TextBlock Text="{Binding TrialStatusText}" Classes="muted" FontSize="11"
-                     VerticalAlignment="Center" />
           <TextBlock Text="© 2026 TestBench.tools · All rights reserved." Classes="muted"
                      FontSize="11" VerticalAlignment="Center" />
           <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
