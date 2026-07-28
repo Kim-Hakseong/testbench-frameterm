@@ -241,8 +241,10 @@
                     </DataTemplate>
                   </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="110" />
-                <DataGridTemplateColumn Header="Dir" Width="50">
+                <!-- Auto widths: every column sizes to its widest cell + header,
+                     so no value is ever clipped. -->
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="Auto" />
+                <DataGridTemplateColumn Header="Dir" Width="Auto">
                   <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="vm:FrameRecordViewModel">
                       <TextBlock Text="{Binding Dir}" Foreground="{Binding DirBrush}"
@@ -250,8 +252,8 @@
                     </DataTemplate>
                   </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Len" Binding="{Binding Len}" Width="60" />
-                <DataGridTemplateColumn Header="Checksum" Width="90">
+                <DataGridTextColumn Header="Len" Binding="{Binding Len}" Width="Auto" />
+                <DataGridTemplateColumn Header="Checksum" Width="Auto">
                   <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="vm:FrameRecordViewModel">
                       <TextBlock Text="{Binding ChecksumText}" Foreground="{Binding ChecksumBrush}"
@@ -259,9 +261,10 @@
                     </DataTemplate>
                   </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Fields" Binding="{Binding FieldsSummary}" Width="*" />
-                <DataGridTextColumn Header="Raw" Binding="{Binding RawPreview}" Width="2*"
-                                    FontFamily="Menlo,Consolas,monospace" />
+                <DataGridTextColumn Header="Fields" Binding="{Binding FieldsSummary}" Width="Auto"
+                                    MinWidth="140" />
+                <DataGridTextColumn Header="Raw" Binding="{Binding RawPreview}" Width="*"
+                                    MinWidth="220" FontFamily="Menlo,Consolas,monospace" />
               </DataGrid.Columns>
             </DataGrid>
           </DockPanel>

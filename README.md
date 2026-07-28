@@ -73,4 +73,4 @@ tests/        — xUnit: 골든 벡터, 불변성 스윕, TCP 루프백, 헤드�
 
 ---
 
-© 2026 NEXYS Co., Ltd. All rights reserved.
+© 2026 TestBench.tools · All rights reserved.
