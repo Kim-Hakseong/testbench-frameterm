@@ -192,7 +192,7 @@
       <DockPanel>
         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="10"
                     VerticalAlignment="Center">
-          <TextBlock Text="© 2026 TestBench.tools · All rights reserved." Classes="muted"
+          <TextBlock Text="© 2026 TestBench.tools · MIT licensed" Classes="muted"
                      FontSize="11" VerticalAlignment="Center" />
           <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="TestBench" Classes="wordmark" FontSize="16"

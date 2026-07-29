@@ -70,6 +70,11 @@ tests/        — xUnit: golden vectors, invariance sweeps, TCP loopback, headle
 
 One design rule mattered most: no blocking I/O on the UI thread. The receive path is a bounded queue with drop counting, so a 921600 bps flood degrades gracefully instead of freezing the window. Time-dependent logic uses an injected clock, which keeps every test deterministic — no sleeps.
 
+## License
+
+MIT — see [LICENSE](LICENSE). Free to use, modify and redistribute,
+including commercially. No warranty.
+
 ---
 
-© 2026 TestBench.tools · All rights reserved.
+© 2026 TestBench.tools · MIT licensed — free and open source.
