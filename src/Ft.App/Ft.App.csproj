@@ -10,7 +10,7 @@
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <!-- Shown in the Windows file properties of the published exe -->
-    <Version>0.2.0</Version>
+    <Version>1.0.0</Version>
     <Product>FrameTerm</Product>
     <Company>TestBench.tools</Company>
     <Copyright>© 2026 TestBench.tools</Copyright>
